@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 
 export default function Main() {
    return (
-      <div>
+      <div className="2xl:container m-auto">
          <Navbar />
          <Outlet />
       </div>

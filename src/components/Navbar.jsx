@@ -1,6 +1,6 @@
 
 export default function Navbar() {
    return (
-      <div className="w-100 h-20 bg-red-500">Navbar</div>
+      <div className="w-full h-20 bg-red-500 border-b-4 border-black">Navbar</div>
    )
 }
