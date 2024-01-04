@@ -1,15 +1,19 @@
-import { useState } from 'react';
+/* eslint-disable react/prop-types */
+// import { useState } from 'react';
 
 // eslint-disable-next-line react/prop-types
-export default function Modal({ closeModal, itemData }) {
-   const [data] = useState([itemData]);
-   console.log(data);
+export default function Modal({ setModal, item }) {
+   document.body.style.overflow = "hidden"
+
+   console.log(item);
 
    return (
-      <div className="w-full h-screen fixed  top-0 bg-slate-200 place-items-center justify-items-center">
-         <div className="w-[500px] h-[500px] bg-white    ">
-            <button className='w-10 h-10 bg-red-200 text-black' onClick={() => closeModal(false)}>x</button>
-            <p className='text-black flex items-center justify-center'>Lorem ipsum dolor sit amet consectetur, adipi</p>
+      <div className="w-full h-screen fixed left-0 top-0 border-y-gray-400 bg-opacity-40 backdrop-blur-md overflow-auto">
+         <div className="w-full h-full flex justify-center m-auto items-center">
+            <div className="w-[500px] h-auto bg-white relative">
+               <button className='w-10 h-10 absolute top-0 right-0 bg-black text-white' onClick={() => setModal(false)}>x</button>
+               <img src={item.urls.small} alt="" />
+            </div>
          </div>
       </div>
    );

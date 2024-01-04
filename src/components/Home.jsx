@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 import Modal from './Modal';
 
-const accesKey = "QaxOLYJFNjV5katlAPBXlpedw2R2Ovti2SKbFZEI4RU";
+const accesKey = "coqmge2ykQgYjS7v1EqICeFAOZNxpAFi6x34bOOms4g";
 const random_url = `https://api.unsplash.com/photos/random?count=28&client_id=${accesKey}`;
 
 export default function Home() {
    const [data, setData] = useState([]);
    const [modal, setModal] = useState(false);
-
-
+   const [item, setItem] = useState([]);
+   document.body.style.overflow = "initial"
 
    useEffect(() => {
       fetch(random_url)
@@ -19,11 +19,8 @@ export default function Home() {
          .catch(() => alert("Xatolik yuz berdi!"));
    }, []);
 
-   const toggleModal = ({ item }) => {
-      const itemData = item
-      console.log(itemData);
-
-      <Modal itemData={itemData} />
+   const toggleModal = (value) => {
+      setItem(value)
       setModal(!modal)
    };
 
@@ -32,10 +29,10 @@ export default function Home() {
       <>
          <div className="w-full h-auto  grid grid-cols-[repeat(auto-fit,minmax(15rem,1fr))] auto-rows-[15rem]">
             {data.map((item) => (
-               <img key={item.id} src={item.urls.small_s3} alt={item.alt_description} className='w-full h-full object-cover cursor-pointer' onClick={() => toggleModal({ item })} />
+               <img key={item.id} src={item.urls.small_s3} alt={item.alt_description} className='w-full h-full object-cover cursor-pointer' onClick={() => toggleModal(item)} />
             ))}
          </div>
-         {modal && (<Modal closeModal={setModal} />)}
+         {modal && (<Modal setModal={setModal} item={item} />)}
       </>
    )
 }
