@@ -7,7 +7,7 @@ import "./index.css";
 import Main from "./components/Main";
 import Home from "./components/Home";
 import NotFound from "./components/NotFound";
-import Result from "./components/Result";
+import SearchResult from "./components/SearchResult";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +20,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'search-result',
-        element: <Result />
+        element: <SearchResult />
       }
     ]
   },

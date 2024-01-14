@@ -3,10 +3,7 @@ export default function Modal({ setModal, item }) {
    document.body.style.overflow = "hidden"
 
    document.addEventListener('click', (e) => {
-      // console.log(e.target.classList[0] == 'modal-wrapper'); 
-      // const target = e.target
       if (e.target.classList[0] == 'modal-wrapper') {
-         // console.log(true);
          setModal(false)
       }
    })
